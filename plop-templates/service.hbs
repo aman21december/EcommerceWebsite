@@ -1,0 +1,35 @@
+const sequelize = require("../../../config/db");
+const { QueryTypes } = require("sequelize");
+const humps = require("humps");
+const { ErrorHandler, statusCodes } = require("../../helper");
+const { constant, getDate } = require("../../utils");
+
+//Import functions
+//const {} = require("./helper");
+
+const { SERVER_ERROR, INPUT_ERROR } = statusCodes;
+
+const { DUPLICATE, SUCCESS, CREATE, UPDATE, ACTIVE, INACTIVE, DELETE } = constant;
+
+class {{pascalCase serviceName}} {
+constructor() {}
+
+//Update service function name
+async tempService(body, user) {
+try {
+
+return {
+message: SUCCESS,
+};
+} catch (error) {
+if (error.statusCode) {
+throw new ErrorHandler(error.statusCode, error.message);
+}
+throw new ErrorHandler(SERVER_ERROR, error);
+}
+}
+}
+
+
+
+module.exports = {{pascalCase serviceName}};
